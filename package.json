@@ -1,0 +1,54 @@
+{
+  "name": "image-password",
+  "version": "0.2.1",
+  "description": "Use images as passwords: normalize bytes, hash, and derive keys (Node + browser).",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm,cjs --sourcemap",
+    "dev": "tsup src/index.ts --dts --format esm,cjs --watch",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "prepublishOnly": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [
+    "image",
+    "password",
+    "hash",
+    "pbkdf2",
+    "crypto",
+    "webcrypto"
+  ],
+  "author": "VSHAL",
+  "devDependencies": {
+    "@types/node": "^24.6.1",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "eslint": "^9.36.0",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  },
+  "dependencies": {
+    "undici": "^6.21.3"
+  }
+}
